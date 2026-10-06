@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Barlow_Condensed, Figtree, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { GoogleTagManager, GoogleTagManagerNoScript } from "@/components/GoogleTagManager";
+import ClickTracking from "@/components/ClickTracking";
 
 const display = Barlow_Condensed({
   subsets: ["latin"],
@@ -33,7 +35,14 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en-GB" className={`${display.variable} ${body.variable} ${mono.variable}`}>
-      <body>{children}</body>
+      <head>
+        <GoogleTagManager />
+      </head>
+      <body>
+        <GoogleTagManagerNoScript />
+        <ClickTracking />
+        {children}
+      </body>
     </html>
   );
 }

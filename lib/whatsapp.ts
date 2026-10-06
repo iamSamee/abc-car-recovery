@@ -1,3 +1,5 @@
+import { track } from "./analytics";
+
 export const WHATSAPP_NUMBER = "447356202939";
 
 /** wa.me link that opens a chat with ABC, with `text` already typed in. */
@@ -43,6 +45,7 @@ export function quoteMessage(f: {
 
 /** Opens WhatsApp in a new tab (desktop) or the app (mobile). */
 export function openWhatsApp(url: string) {
+  track("whatsapp_click", { link_url: url, click_location: "quote", page_path: location.pathname, whatsapp_source: "quote_form" });
   const win = window.open(url, "_blank", "noopener");
   if (!win) window.location.href = url;
 }
