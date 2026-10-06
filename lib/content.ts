@@ -25,6 +25,13 @@ export const trust = [
   { title: "Nationwide", sub: "Birmingham-based, UK-wide" },
 ];
 
+// Garage-side services, shown on every page after the recovery services.
+export const extraServices = [
+  { tag: "Garage", title: "Garage Services", body: "Servicing, diagnostics and repairs. We can collect your car, fix it and bring it back to you." },
+  { tag: "Mobile", title: "Mobile Mechanic", body: "Repairs at your home, workplace or roadside, so many faults are fixed on the spot without a tow." },
+  { tag: "Garage", title: "MOT Testing", body: "MOT tests for cars and vans, with collection and drop-off available so you don't lose your day." },
+];
+
 export const services = [
   { num: "01", tag: "Most called", title: "Breakdown Recovery", body: "Engine failure, gearbox, overheating — we load your vehicle and take it to your garage or home." },
   { num: "02", tag: "Priority", title: "Accident Recovery", body: "Safe, careful recovery of accident-damaged and non-running vehicles from the roadside." },
@@ -32,6 +39,7 @@ export const services = [
   { num: "04", tag: "Roadside", title: "Refuelling", body: "Run out of fuel or filled up with the wrong one? We'll get you moving again." },
   { num: "05", tag: "Winching", title: "Stuck Vehicle", body: "Ditches, mud, car parks, tight spots — we winch and recover vehicles from awkward places." },
   { num: "06", tag: "Planned", title: "Vehicle Transport", body: "Auction collections (Copart, Synetiq), garage runs and long-distance car moves." },
+  ...extraServices.map((x, i) => ({ num: String(7 + i).padStart(2, "0"), ...x })),
 ];
 
 export const steps = [

@@ -1,3 +1,5 @@
+import { extraServices } from "./content";
+
 export type Landing = {
   meta: { title: string; description: string; path: string };
   brandName: string;
@@ -120,6 +122,7 @@ export const carTowing: Landing = {
       { num: "02", title: "Local Car Towing", body: "Quick tows across Birmingham and the West Midlands — home, garage or dealer." },
       { num: "03", title: "Long Distance Towing", body: "Car towing to any destination in the UK, with the price agreed up front." },
       { num: "04", title: "Tow To A Garage", body: "MOT, repairs or servicing — we tow your car to your garage and drop the keys." },
+      ...extraServices.map(({ title, body }, i) => ({ num: String(5 + i).padStart(2, "0"), title, body })),
     ],
     cta: "Call now to arrange a tow",
   },
@@ -219,6 +222,7 @@ export const carBreakdownRecovery: Landing = {
       { num: "02", title: "Accident Recovery", body: "Careful recovery of accident-damaged vehicles from the roadside or scene." },
       { num: "03", title: "Van Recovery", body: "Van breakdown recovery for tradespeople and businesses, so you lose as little time as possible." },
       { num: "04", title: "Non-runners", body: "Won't start, no keys, flat tyres or stuck — we recover vehicles that can't move." },
+      ...extraServices.map(({ title, body }, i) => ({ num: String(5 + i).padStart(2, "0"), title, body })),
     ],
     cta: "Call to check availability now",
   },
