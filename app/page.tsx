@@ -48,7 +48,7 @@ export default function Home() {
                   <span className="hero__arrow" aria-hidden>→</span>
                 </a>
                 <div className="two-col">
-                  <a href={WHATSAPP_URL} className="btn btn--outline">
+                  <a href={WHATSAPP_URL} target="_blank" rel="noopener" className="btn btn--outline">
                     <span className="dot" style={{ width: 10, height: 10, background: "var(--whatsapp)" }} />
                     WhatsApp
                   </a>
@@ -286,7 +286,7 @@ export default function Home() {
               <span className="dot" style={{ background: "var(--ink)" }} />
               Call 24/7
             </a>
-            <a href={WHATSAPP_URL} className="btn btn--whatsapp">WhatsApp</a>
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener" className="btn btn--whatsapp">WhatsApp</a>
           </div>
         </>
       )}

@@ -50,7 +50,7 @@ export default function LandingPage({ c }: { c: Landing }) {
                   <span className="hero__arrow" aria-hidden>→</span>
                 </a>
                 <div className="two-col">
-                  <a href={whatsapp} className="btn btn--whatsapp lp-btn-52">WhatsApp us</a>
+                  <a href={whatsapp} target="_blank" rel="noopener" className="btn btn--whatsapp lp-btn-52">WhatsApp us</a>
                   <a href="#quote" className="btn btn--outline">{c.hero.quoteLabel}</a>
                 </div>
               </div>
@@ -213,7 +213,7 @@ export default function LandingPage({ c }: { c: Landing }) {
             <p className="final__lead">{c.final.lead}</p>
             <div className="lp-final__ctas">
               <a href={PHONE_TEL} className="btn btn--dark final__btn">Call {PHONE_DISPLAY}</a>
-              <a href={whatsapp} className="btn btn--outline-dark">{c.final.whatsappLabel}</a>
+              <a href={whatsapp} target="_blank" rel="noopener" className="btn btn--outline-dark">{c.final.whatsappLabel}</a>
             </div>
           </div>
         </section>
@@ -242,7 +242,7 @@ export default function LandingPage({ c }: { c: Landing }) {
               <span className="dot" style={{ background: "var(--ink)" }} />
               {c.stickyCallLabel}
             </a>
-            <a href={whatsapp} className="btn btn--whatsapp">WhatsApp</a>
+            <a href={whatsapp} target="_blank" rel="noopener" className="btn btn--whatsapp">WhatsApp</a>
           </div>
         </>
       )}

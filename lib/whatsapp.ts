@@ -43,9 +43,12 @@ export function quoteMessage(f: {
   ].join("\n");
 }
 
-/** Opens WhatsApp in a new tab (desktop) or the app (mobile). */
+/** Opens WhatsApp in a new tab (desktop) or the app (mobile), keeping the site open. */
 export function openWhatsApp(url: string) {
   track("whatsapp_click", { link_url: url, click_location: "quote", page_path: location.pathname, whatsapp_source: "quote_form" });
-  const win = window.open(url, "_blank", "noopener");
-  if (!win) window.location.href = url;
+  // Don't pass "noopener" here: it makes window.open return null even on
+  // success, which would trigger the fallback and navigate away from the site.
+  const win = window.open(url, "_blank");
+  if (win) win.opener = null;
+  else window.location.href = url; // popup blocked
 }
