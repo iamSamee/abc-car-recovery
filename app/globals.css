@@ -287,3 +287,72 @@ h1, h2, h3, p { margin: 0; }
 }
 .sticky-bar a { height: 52px; font-size: 16px; }
 .btn--whatsapp { background: var(--whatsapp); color: #0b2e17; }
+
+/* ---------- landing pages ---------- */
+.lp-header-call {
+  background: var(--yellow); color: var(--ink); border-radius: 6px; padding: 0 14px; height: 44px;
+  display: flex; flex-direction: column; justify-content: center; line-height: 1.05;
+}
+.lp-header-call__label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; }
+.lp-header-call__number { font-family: var(--font-display), sans-serif; font-weight: 800; font-size: 20px; letter-spacing: 0.3px; white-space: nowrap; }
+
+.lp-hero { padding-top: 28px; padding-bottom: 36px; gap: 28px; }
+.lp-hero__copy { gap: 18px; }
+.lp-hero .hero__title { font-size: clamp(46px, 11.5vw, 84px); }
+.lp-hero__phone { min-height: 68px; }
+.lp-hero__phone .hero__phone-number { font-size: 32px; }
+.lp-hero__phone .hero__arrow { width: 42px; height: 42px; flex: none; }
+.lp-btn-52 { height: 52px; font-size: 15px; }
+.ticks { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px 18px; font-size: 14px; color: #d0d0d0; max-width: 520px; }
+.tick { display: flex; align-items: center; gap: 8px; }
+.tick__box {
+  width: 18px; height: 18px; border-radius: 3px; background: var(--yellow); color: var(--ink); flex: none;
+  font-size: 11px; font-weight: 800; display: flex; align-items: center; justify-content: center;
+}
+
+.lp-quote-section { padding-top: 40px; padding-bottom: 24px; }
+.lp-quote { padding: 24px 18px; gap: 24px; }
+.lp-urgent { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; font-size: 15px; }
+.lp-urgent__line { display: flex; gap: 8px; align-items: center; }
+.lp-urgent__phone { font-family: var(--font-display), sans-serif; font-weight: 800; font-size: 26px; }
+.form--roomy { gap: 14px; }
+.field__row { display: flex; gap: 8px; }
+.field__row input { flex: 1; min-width: 0; height: 52px; border: 1.5px solid #d6d3ca; border-radius: 8px; padding: 0 14px; font-size: 16px; background: #fafaf8; }
+.field__row input:focus { outline: 2px solid var(--yellow); outline-offset: 1px; border-color: var(--ink); }
+.loc-btn {
+  flex: none; height: 52px; padding: 0 14px; border-radius: 8px; border: 1.5px solid var(--ink); background: #fff;
+  font-weight: 700; font-size: 14px; cursor: pointer; white-space: nowrap; color: var(--ink);
+}
+.loc-btn:disabled { opacity: 0.6; cursor: wait; }
+.success .success__call { align-self: stretch; height: 52px; font-size: 16px; margin-top: 8px; }
+
+.lp-card-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 270px), 1fr)); }
+.lp-how-section { padding-top: 16px; padding-bottom: 40px; }
+.lp-how-section .how { padding: 30px 18px; gap: 22px; }
+.note { border: 1px solid #3a3a3a; border-radius: 10px; padding: 16px; display: flex; gap: 12px; align-items: flex-start; }
+.note__icon {
+  width: 24px; height: 24px; border-radius: 50%; background: var(--yellow); color: var(--ink); flex: none;
+  font-weight: 800; font-size: 14px; display: flex; align-items: center; justify-content: center;
+}
+.note__body { font-size: 15px; line-height: 1.5; color: #d6d6d6; }
+.note__body strong { color: #fff; }
+
+.lp-block { padding-bottom: 40px; }
+.lp-reviews { padding: 16px 0 40px; }
+.lp-final { padding-top: 0; padding-bottom: 40px; }
+.lp-final .final__box { padding: 32px 20px; gap: 14px; }
+.lp-final .final__title { font-size: clamp(42px, 10.5vw, 72px); }
+.lp-final__ctas { display: flex; flex-direction: column; gap: 10px; width: 100%; max-width: 420px; }
+.lp-final__ctas .final__btn { max-width: none; }
+.btn--outline-dark { border: 2px solid var(--ink); color: var(--ink); height: 52px; font-size: 16px; }
+
+.lp-footer { background: var(--ink); color: #9a9a9a; }
+.lp-footer__inner { padding-top: 28px; padding-bottom: 28px; display: flex; flex-direction: column; gap: 10px; font-size: 14px; line-height: 1.5; }
+.lp-footer__name { color: #fff; font-weight: 700; }
+.lp-footer__contact { display: flex; flex-wrap: wrap; gap: 6px 16px; }
+.lp-footer__phone { color: var(--yellow); font-weight: 700; }
+.lp-footer .footer__email { color: #cfcfcf; }
+.lp-footer__legal { font-size: 13px; color: #7a7a7a; }
+.lp-footer__legal a { color: #9a9a9a; }
+.lp-sticky { grid-template-columns: 1.4fr 1fr; }
+.success .success__call + .success__call { margin-top: 0; }

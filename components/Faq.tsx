@@ -1,14 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import { faqs } from "@/lib/content";
+import { faqs as defaultFaqs } from "@/lib/content";
 
-export default function Faq() {
+type Item = { q: string; a: string };
+
+export default function Faq({ items = defaultFaqs }: { items?: Item[] }) {
   const [openIdx, setOpenIdx] = useState(0);
 
   return (
     <div className="list">
-      {faqs.map((f, i) => {
+      {items.map((f, i) => {
         const open = openIdx === i;
         return (
           <div key={f.q} className="faq__item" data-open={open}>

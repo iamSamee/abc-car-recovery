@@ -1,9 +1,11 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { reviews } from "@/lib/content";
+import { reviews as defaultReviews } from "@/lib/content";
 
-export default function ReviewCarousel() {
+type Review = { quote: string; name: string; meta: string };
+
+export default function ReviewCarousel({ items = defaultReviews }: { items?: Review[] }) {
   const ref = useRef<HTMLDivElement>(null);
   const paused = useRef(false);
   const resumeTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
@@ -41,7 +43,7 @@ export default function ReviewCarousel() {
       onTouchStart={pause}
       onTouchEnd={resume}
     >
-      {reviews.map((r, i) => (
+      {items.map((r, i) => (
         <figure key={i} className="review" style={{ margin: 0 }}>
           <span className="stars" aria-label="5 out of 5 stars">★★★★★</span>
           <blockquote className="review__quote" style={{ margin: 0 }}>“{r.quote}”</blockquote>

@@ -1,7 +1,13 @@
+import { whatsappLink } from "./whatsapp";
+
 export const PHONE_DISPLAY = "07356 202939";
 export const PHONE_TEL = "tel:07356202939";
-export const WHATSAPP_URL = "https://wa.me/447356202939";
+export const WHATSAPP_URL = whatsappLink();
 export const EMAIL = "info@abccarrecoverybirmingham.co.uk";
+
+// Google Business Profile rating — update when it changes.
+export const RATING = "4.9";
+export const REVIEW_COUNT = 59;
 
 export const navLinks = [
   { label: "Services", href: "#services" },

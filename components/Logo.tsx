@@ -1,4 +1,4 @@
-export default function Logo({ href }: { href?: string }) {
+export default function Logo({ href, name = "Car Recovery" }: { href?: string; name?: string }) {
   const inner = (
     <>
       <span className="logo__mark" aria-hidden>
@@ -6,7 +6,7 @@ export default function Logo({ href }: { href?: string }) {
         <span className="logo__bar" />
       </span>
       <span className="logo__text">
-        <span className="logo__name">Car Recovery</span>
+        <span className="logo__name">{name}</span>
         <span className="logo__sub">Birmingham · 24/7</span>
       </span>
     </>

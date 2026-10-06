@@ -1,7 +1,11 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { needOptions, PHONE_DISPLAY } from "@/lib/content";
+import { needOptions } from "@/lib/content";
+import { openWhatsApp, quoteMessage, whatsappLink } from "@/lib/whatsapp";
+import { useCurrentLocation } from "./useCurrentLocation";
+import PickupField from "./PickupField";
+import WhatsAppSent from "./WhatsAppSent";
 
 type Need = (typeof needOptions)[number];
 const emptyForm = { need: "Breakdown" as Need, from: "", to: "", phone: "" };
@@ -9,10 +13,11 @@ const emptyForm = { need: "Breakdown" as Need, from: "", to: "", phone: "" };
 export default function QuoteForm() {
   const [form, setForm] = useState(emptyForm);
   const [error, setError] = useState("");
-  const [submitted, setSubmitted] = useState(false);
+  const [sentUrl, setSentUrl] = useState<string>();
+  const location = useCurrentLocation(setError);
 
-  const set = (key: "from" | "to" | "phone") => (e: React.ChangeEvent<HTMLInputElement>) => {
-    setForm((f) => ({ ...f, [key]: e.target.value }));
+  const set = (key: "from" | "to" | "phone") => (value: string) => {
+    setForm((f) => ({ ...f, [key]: value }));
     setError("");
   };
 
@@ -20,27 +25,31 @@ export default function QuoteForm() {
     e.preventDefault();
     if (!form.from.trim()) return setError("Please add a collection location.");
     if (form.phone.replace(/\D/g, "").length < 10) return setError("Please enter a valid mobile number.");
-    // TODO: send `form` to an API route / email service.
-    setSubmitted(true);
+
+    const url = whatsappLink(
+      quoteMessage({
+        heading: "Hi ABC, I'd like a recovery quote.",
+        details: [["Service", form.need]],
+        pickup: form.from,
+        pickupPin: location.pin,
+        destination: form.to,
+        phone: form.phone,
+      })
+    );
+    openWhatsApp(url);
+    setSentUrl(url);
   };
 
-  if (submitted) {
+  if (sentUrl) {
     return (
-      <div className="success" role="status">
-        <span className="display success__title">Request received</span>
-        <span className="success__body">
-          We&apos;ll text {form.phone} with a fixed price shortly. Need us sooner? Call {PHONE_DISPLAY}.
-        </span>
-        <button
-          type="button"
-          onClick={() => {
-            setForm(emptyForm);
-            setSubmitted(false);
-          }}
-        >
-          Send another
-        </button>
-      </div>
+      <WhatsAppSent
+        url={sentUrl}
+        onReset={() => {
+          setForm(emptyForm);
+          location.clear();
+          setSentUrl(undefined);
+        }}
+      />
     );
   }
 
@@ -62,21 +71,25 @@ export default function QuoteForm() {
           ))}
         </div>
       </div>
-      <label className="field">
-        <span className="field__label">Collection postcode or location</span>
-        <input value={form.from} onChange={set("from")} placeholder="e.g. B6 7DG or M6 J7" autoComplete="postal-code" />
-      </label>
+      <PickupField
+        id="home-from"
+        label="Collection postcode or location"
+        placeholder="e.g. B6 7DG or M6 J7"
+        value={form.from}
+        onChange={set("from")}
+        location={location}
+      />
       <label className="field">
         <span className="field__label">Drop-off (optional)</span>
-        <input value={form.to} onChange={set("to")} placeholder="Garage, home or postcode" />
+        <input value={form.to} onChange={(e) => set("to")(e.target.value)} placeholder="Garage, home or postcode" />
       </label>
       <label className="field">
         <span className="field__label">Mobile number</span>
-        <input type="tel" value={form.phone} onChange={set("phone")} placeholder="07…" autoComplete="tel" />
+        <input type="tel" value={form.phone} onChange={(e) => set("phone")(e.target.value)} placeholder="07…" autoComplete="tel" />
       </label>
       {error && <span className="form__error" role="alert">{error}</span>}
-      <button type="submit" className="btn btn--dark form__submit">Get my free quote</button>
-      <span className="form__note">No obligation. We&apos;ll only use your number to send your quote.</span>
+      <button type="submit" className="btn btn--dark form__submit">Get my free quote on WhatsApp</button>
+      <span className="form__note">Opens WhatsApp with your details filled in — just press Send.</span>
     </form>
   );
 }

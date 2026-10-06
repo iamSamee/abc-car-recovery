@@ -5,7 +5,7 @@ import QuoteForm from "@/components/QuoteForm";
 import ReviewCarousel from "@/components/ReviewCarousel";
 import Faq from "@/components/Faq";
 import {
-  PHONE_DISPLAY, PHONE_TEL, WHATSAPP_URL, EMAIL,
+  PHONE_DISPLAY, PHONE_TEL, WHATSAPP_URL, EMAIL, RATING, REVIEW_COUNT,
   trust, services, steps, reasons, areas,
 } from "@/lib/content";
 
@@ -56,7 +56,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="hero__proof">
-                <span><b>★★★★★</b> 5.0 customer rating</span>
+                <span><b>★★★★★</b> {RATING} from {REVIEW_COUNT} Google reviews</span>
                 <span>Fully insured</span>
                 <span>No hidden fees</span>
               </div>
@@ -213,10 +213,10 @@ export default function Home() {
               <h2 className="h2">Drivers we&apos;ve rescued.</h2>
             </div>
             <div className="rating">
-              <span className="rating__score">5.0</span>
+              <span className="rating__score">{RATING}</span>
               <div className="rating__meta">
                 <span className="stars">★★★★★</span>
-                <span>Average customer rating</span>
+                <span>{REVIEW_COUNT} Google reviews</span>
               </div>
             </div>
           </div>
