@@ -3,6 +3,7 @@ import { Barlow_Condensed, Figtree, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { GoogleTagManager, GoogleTagManagerNoScript } from "@/components/GoogleTagManager";
 import ClickTracking from "@/components/ClickTracking";
+import { Analytics } from "@vercel/analytics/next";
 
 const display = Barlow_Condensed({
   subsets: ["latin"],
@@ -42,6 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <GoogleTagManagerNoScript />
         <ClickTracking />
         {children}
+        <Analytics />
       </body>
     </html>
   );
