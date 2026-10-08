@@ -1,7 +1,7 @@
 import { whatsappLink } from "./whatsapp";
 
 export const PHONE_DISPLAY = "07356 202939";
-export const PHONE_TEL = "tel:07356202939";
+export const PHONE_TEL = "tel:+447356202939";
 export const WHATSAPP_URL = whatsappLink();
 export const EMAIL = "info@abccarrecoverybirmingham.co.uk";
 
