@@ -149,7 +149,7 @@ export default function LandingPage({ c }: { c: Landing }) {
         </section>
 
         {/* Why ABC */}
-        <section className="container lp-block">
+        <section id="why" className="container lp-block">
           <div className="why">
             <div className="why__intro">
               <span className="eyebrow">{c.why.eyebrow}</span>

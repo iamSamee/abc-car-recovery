@@ -12,6 +12,7 @@ export const REVIEW_COUNT = 59;
 export const navLinks = [
   { label: "Services", href: "#services" },
   { label: "How it works", href: "#how" },
+  { label: "Why choose us", href: "#why" },
   { label: "Free quote", href: "#quote" },
   { label: "Areas covered", href: "#areas" },
   { label: "Reviews", href: "#reviews" },
