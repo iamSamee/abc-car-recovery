@@ -235,6 +235,7 @@ export default function Home() {
         {/* Final CTA */}
         <section id="contact" className="final">
           <div className="final__box">
+            <span className="eyebrow eyebrow--on-yellow">08 — Contact</span>
             <h2 className="display final__title">
               Stuck right now? <br />
               Don&apos;t wait.
