@@ -233,7 +233,7 @@ export default function Home() {
         </section>
 
         {/* Final CTA */}
-        <section className="final">
+        <section id="contact" className="final">
           <div className="final__box">
             <h2 className="display final__title">
               Stuck right now? <br />
@@ -247,7 +247,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer id="contact" className="footer">
+      <footer className="footer">
         <div className="container footer__grid">
           <div className="footer__col footer__col--brand">
             <Logo />
