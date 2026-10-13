@@ -1,15 +1,31 @@
 import Script from "next/script";
 import { GTM_ID } from "@/lib/analytics";
 
-/** GTM loader — goes in <head> via the root layout. */
+/**
+ * GTM loader — goes in <head> via the root layout.
+ *
+ * GTM plus the Google Ads tag it pulls in is ~300 KB of JavaScript, which on
+ * slow phones delays the hero image (LCP) and blocks the main thread. So it
+ * loads on the visitor's first interaction, or 3.5s after page load, whichever
+ * is first. Events pushed to dataLayer before then (e.g. a fast call tap) are
+ * queued and processed when GTM arrives.
+ */
+const LOAD_DELAY_MS = 3500;
+
 export function GoogleTagManager() {
   return (
     <Script id="gtm" strategy="afterInteractive">
-      {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','${GTM_ID}');`}
+      {`(function(w,d,l,i){
+w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+var done=false,evs=['pointerdown','touchstart','scroll','keydown'];
+function load(){if(done)return;done=true;
+evs.forEach(function(e){w.removeEventListener(e,load,{passive:true,capture:true})});
+var j=d.createElement('script');j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i;
+d.head.appendChild(j);}
+evs.forEach(function(e){w.addEventListener(e,load,{passive:true,capture:true})});
+function later(){setTimeout(load,${LOAD_DELAY_MS})}
+if(d.readyState==='complete')later();else w.addEventListener('load',later);
+})(window,document,'dataLayer','${GTM_ID}');`}
     </Script>
   );
 }

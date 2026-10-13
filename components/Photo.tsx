@@ -18,7 +18,16 @@ export default function Photo({ src, alt, placeholder, variant, sizes = "(max-wi
   return (
     <div className={`photo photo--${variant}`}>
       {src ? (
-        <Image src={src} alt={alt} fill sizes={sizes} priority={priority} />
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          sizes={sizes}
+          // Hero photo is the page's LCP: preload it and ask for it first.
+          preload={priority}
+          fetchPriority={priority ? "high" : undefined}
+          loading={priority ? "eager" : undefined}
+        />
       ) : (
         <div className="photo__placeholder">{placeholder}</div>
       )}
