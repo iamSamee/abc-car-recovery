@@ -223,6 +223,10 @@ h1, h2, h3, p { margin: 0; }
 .carousel {
   display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth;
   scrollbar-width: none; padding: 0 16px 8px; max-width: 1232px; margin: 0 auto;
+  /* Match the 16px side padding so the carousel's starting position already
+     satisfies snapping. Otherwise Chrome snaps it on load, counts that as a
+     scroll and stops measuring LCP (PageSpeed reports NO_LCP). */
+  scroll-padding-inline: 16px;
 }
 .carousel::-webkit-scrollbar { display: none; }
 .review {
