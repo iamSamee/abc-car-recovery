@@ -6,6 +6,7 @@ import ClickTracking from "@/components/ClickTracking";
 import CookieBanner from "@/components/CookieBanner";
 import { Analytics } from "@vercel/analytics/next";
 import { ADDRESS, COMPANY_NAME, EMAIL } from "@/lib/content";
+import { SITE_URL } from "@/lib/site";
 
 // Business details Google can read directly (helps confirm the business is real and local).
 const businessSchema = {
@@ -53,6 +54,8 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  // Makes canonical URLs absolute (https://www.…) instead of relative paths.
+  metadataBase: new URL(SITE_URL),
   title: "ABC Car Recovery Birmingham | 24/7 Breakdown & Vehicle Recovery",
   description:
     "24/7 car & van breakdown recovery across Birmingham and the West Midlands. Roadside, motorway, accident or non-runner — call 07356 202939.",

@@ -1,4 +1,6 @@
+import type { Metadata } from "next";
 import Header from "@/components/Header";
+import { FaqSchema } from "@/components/JsonLd";
 import Logo from "@/components/Logo";
 import Photo from "@/components/Photo";
 import QuoteForm from "@/components/QuoteForm";
@@ -8,11 +10,13 @@ import FooterLinks from "@/components/FooterLinks";
 import CompanyLegal from "@/components/CompanyLegal";
 import {
   PHONE_DISPLAY, PHONE_TEL, WHATSAPP_URL, EMAIL, RATING, REVIEW_COUNT,
-  trust, services, steps, reasons, areas,
+  trust, services, steps, reasons, areas, faqs,
 } from "@/lib/content";
 
 // Set to false to hide the fixed mobile call / WhatsApp bar.
 const STICKY_CALL_BAR = true;
+
+export const metadata: Metadata = { alternates: { canonical: "/" } };
 
 export default function Home() {
   return (
@@ -22,6 +26,7 @@ export default function Home() {
         <span>Recovery trucks on the road now — Birmingham &amp; West Midlands</span>
       </div>
 
+      <FaqSchema items={faqs} />
       <Header />
 
       <main>

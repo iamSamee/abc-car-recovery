@@ -11,6 +11,7 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <SitePage
+      path="/services/"
       eyebrow="Our services"
       title="Recovery, towing & garage services."
       lead="From a flat battery at the roadside to a non-runner that needs towing across the country — one local team, one call."

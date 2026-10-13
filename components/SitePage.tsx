@@ -1,10 +1,13 @@
 import Header from "@/components/Header";
+import { BreadcrumbSchema } from "@/components/JsonLd";
 import FooterLinks from "@/components/FooterLinks";
 import CompanyLegal from "@/components/CompanyLegal";
 import { ADDRESS_ONE_LINE, COMPANY_NAME, EMAIL, PHONE_DISPLAY, PHONE_TEL } from "@/lib/content";
 import { whatsappLink } from "@/lib/whatsapp";
 
 type Props = {
+  /** This page's URL path, for breadcrumb structured data. */
+  path: string;
   eyebrow: string;
   title: string;
   lead?: React.ReactNode;
@@ -12,10 +15,11 @@ type Props = {
 };
 
 /** Shell for the supporting pages (contact, reviews, areas, services, privacy). */
-export default function SitePage({ eyebrow, title, lead, children }: Props) {
+export default function SitePage({ path, eyebrow, title, lead, children }: Props) {
   const whatsapp = whatsappLink("Hi ABC, I need a recovery. My location is:");
   return (
     <>
+      <BreadcrumbSchema path={path} />
       <Header />
 
       <main>

@@ -11,6 +11,7 @@ export const metadata: Metadata = {
 export default function AreasPage() {
   return (
     <SitePage
+      path="/areas-we-cover/"
       eyebrow="Areas we cover"
       title="Recovery near you in Birmingham."
       lead="Our trucks are based in Birmingham (B6), so we reach most of the city and the West Midlands quickly — typically within 30–45 minutes. We also move vehicles anywhere in the UK."

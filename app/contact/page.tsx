@@ -13,6 +13,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <SitePage
+      path="/contact/"
       eyebrow="Contact us 24/7"
       title="Call, WhatsApp or get a quote."
       lead="We answer day and night, including weekends and bank holidays. Tell us where the vehicle is and where it needs to go, and we'll give you a fixed price before we set off."

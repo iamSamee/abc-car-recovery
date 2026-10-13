@@ -12,6 +12,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <SitePage
+      path="/about/"
       eyebrow="About ABC"
       title="Birmingham's local recovery team."
       lead="We're a Birmingham-based car recovery and towing company — not a national broker or call centre. When you call, you speak to the people who'll actually come and get you."

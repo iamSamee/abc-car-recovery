@@ -14,7 +14,8 @@ const UPDATED = "13 October 2026";
 
 export default function PrivacyPage() {
   return (
-    <SitePage eyebrow="Privacy policy" title="Your privacy." lead={`Last updated ${UPDATED}.`}>
+    <SitePage
+      path="/privacy-policy/" eyebrow="Privacy policy" title="Your privacy." lead={`Last updated ${UPDATED}.`}>
       <article className="prose">
         <h2>Who we are</h2>
         <p>

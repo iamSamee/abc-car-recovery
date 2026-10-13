@@ -8,6 +8,7 @@ import { PHONE_DISPLAY, PHONE_TEL, EMAIL, RATING, REVIEW_COUNT } from "@/lib/con
 import { googleReviews, type Landing } from "@/lib/landings";
 import FooterLinks from "@/components/FooterLinks";
 import CompanyLegal from "@/components/CompanyLegal";
+import { BreadcrumbSchema, FaqSchema } from "@/components/JsonLd";
 
 // Set to false to hide the fixed mobile call / WhatsApp bar.
 const STICKY_CALL_BAR = true;
@@ -17,6 +18,8 @@ export default function LandingPage({ c }: { c: Landing }) {
 
   return (
     <>
+      <FaqSchema items={c.faq.items} />
+      <BreadcrumbSchema path={c.meta.path} />
       {/* Header — no nav, single conversion goal */}
       <header className="header">
         <div className="container header__bar">

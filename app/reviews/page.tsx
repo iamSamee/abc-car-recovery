@@ -12,6 +12,7 @@ export const metadata: Metadata = {
 export default function ReviewsPage() {
   return (
     <SitePage
+      path="/reviews/"
       eyebrow="Customer reviews"
       title={`Rated ${RATING} on Google.`}
       lead={`${REVIEW_COUNT} Google reviews from drivers we've recovered across Birmingham — many of them late at night.`}
