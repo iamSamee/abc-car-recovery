@@ -14,7 +14,7 @@ type Props = {
  * Photo frame. Pass `src` (e.g. "/hero-truck.jpg" in /public) to show a real
  * image; without it, a striped placeholder is rendered.
  */
-export default function Photo({ src, alt, placeholder, variant, sizes = "(max-width: 900px) 100vw, 600px", priority, children }: Props) {
+export default function Photo({ src, alt, placeholder, variant, sizes = "(max-width: 900px) calc(100vw - 32px), 568px", priority, children }: Props) {
   return (
     <div className={`photo photo--${variant}`}>
       {src ? (

@@ -5,9 +5,11 @@ import { GoogleTagManager, GoogleTagManagerNoScript } from "@/components/GoogleT
 import ClickTracking from "@/components/ClickTracking";
 import { Analytics } from "@vercel/analytics/next";
 
+// Only 800 is used. Each extra weight is another font file competing with the
+// hero headline (the page's Largest Contentful Paint) on first load.
 const display = Barlow_Condensed({
   subsets: ["latin"],
-  weight: ["600", "700", "800"],
+  weight: ["800"],
   variable: "--font-display",
 });
 const body = Figtree({
@@ -19,6 +21,8 @@ const mono = JetBrains_Mono({
   subsets: ["latin"],
   weight: ["500"],
   variable: "--font-mono",
+  // Small labels only — let it load after the important fonts.
+  preload: false,
 });
 
 export const metadata: Metadata = {
