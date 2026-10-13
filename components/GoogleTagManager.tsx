@@ -16,7 +16,12 @@ export function GoogleTagManager() {
   return (
     <Script id="gtm" strategy="afterInteractive">
       {`(function(w,d,l,i){
-w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+w[l]=w[l]||[];w.gtag=w.gtag||function(){w[l].push(arguments)};
+var c=null;try{c=localStorage.getItem('abc_cookie_consent')}catch(e){}
+var g=c==='granted'?'granted':'denied';
+w.gtag('consent','default',{ad_storage:g,ad_user_data:g,ad_personalization:g,analytics_storage:g,wait_for_update:500});
+w.gtag('set','ads_data_redaction',g==='denied');w.gtag('set','url_passthrough',true);
+w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
 var done=false,evs=['pointerdown','touchstart','scroll','keydown'];
 function load(){if(done)return;done=true;
 evs.forEach(function(e){w.removeEventListener(e,load,{passive:true,capture:true})});

@@ -7,6 +7,7 @@ import { whatsappLink } from "@/lib/whatsapp";
 import { PHONE_DISPLAY, PHONE_TEL, EMAIL, RATING, REVIEW_COUNT } from "@/lib/content";
 import { googleReviews, type Landing } from "@/lib/landings";
 import FooterLinks from "@/components/FooterLinks";
+import CompanyLegal from "@/components/CompanyLegal";
 
 // Set to false to hide the fixed mobile call / WhatsApp bar.
 const STICKY_CALL_BAR = true;
@@ -230,9 +231,7 @@ export default function LandingPage({ c }: { c: Landing }) {
             <a href={`mailto:${EMAIL}`} className="footer__email">{EMAIL}</a>
           </div>
           <FooterLinks />
-          <span className="lp-footer__legal">
-            © 2026 · Company no. 16578043 · <a href="/">Main site</a>
-          </span>
+          <span className="lp-footer__legal"><CompanyLegal /> · <a href="/">Main site</a></span>
         </div>
       </footer>
 

@@ -5,6 +5,7 @@ import QuoteForm from "@/components/QuoteForm";
 import ReviewCarousel from "@/components/ReviewCarousel";
 import Faq from "@/components/Faq";
 import FooterLinks from "@/components/FooterLinks";
+import CompanyLegal from "@/components/CompanyLegal";
 import {
   PHONE_DISPLAY, PHONE_TEL, WHATSAPP_URL, EMAIL, RATING, REVIEW_COUNT,
   trust, services, steps, reasons, areas,
@@ -274,7 +275,7 @@ export default function Home() {
         </div>
         <div className="footer__bottom">
           <div className="container footer__legal">
-            <span>© 2026 ABC Car Breakdown Recovery Birmingham Ltd · Company no. 16578043</span>
+            <CompanyLegal />
             <FooterLinks />
           </div>
         </div>

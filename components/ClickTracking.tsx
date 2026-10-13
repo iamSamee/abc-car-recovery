@@ -21,7 +21,8 @@ export default function ClickTracking() {
       const link = (e.target as Element | null)?.closest?.("a[href]");
       if (!link) return;
       const href = link.getAttribute("href") ?? "";
-      const params = { link_url: href, click_location: clickLocation(link), page_path: location.pathname };
+      // Drop any ?text=… — after a quote form it holds the customer's details.
+      const params = { link_url: href.split("?")[0], click_location: clickLocation(link), page_path: location.pathname };
       if (href.startsWith("tel:")) track("phone_call_click", params);
       else if (href.includes("wa.me/")) track("whatsapp_click", { ...params, whatsapp_source: "button" });
     };

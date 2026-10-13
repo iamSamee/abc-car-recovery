@@ -13,6 +13,9 @@ export const ADDRESS = {
   postcode: "B6 7DG",
 };
 export const ADDRESS_ONE_LINE = `${ADDRESS.line1}, ${ADDRESS.line2}, ${ADDRESS.city} ${ADDRESS.postcode}`;
+// From Companies House. UK law requires this on the website alongside the
+// company number and place of registration.
+export const REGISTERED_OFFICE = "412 Walsall Road, Perry Barr, Birmingham B42 2LX";
 
 // Real pages (not #anchors) so each can be its own Google Ads sitelink.
 export const footerLinks = [

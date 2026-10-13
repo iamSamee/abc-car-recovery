@@ -1,6 +1,7 @@
 import Logo from "@/components/Logo";
 import FooterLinks from "@/components/FooterLinks";
-import { ADDRESS_ONE_LINE, COMPANY_NAME, COMPANY_NUMBER, EMAIL, PHONE_DISPLAY, PHONE_TEL } from "@/lib/content";
+import CompanyLegal from "@/components/CompanyLegal";
+import { ADDRESS_ONE_LINE, COMPANY_NAME, EMAIL, PHONE_DISPLAY, PHONE_TEL } from "@/lib/content";
 import { whatsappLink } from "@/lib/whatsapp";
 
 type Props = {
@@ -49,7 +50,7 @@ export default function SitePage({ eyebrow, title, lead, children }: Props) {
             <a href={`mailto:${EMAIL}`} className="footer__email">{EMAIL}</a>
           </div>
           <FooterLinks />
-          <span className="lp-footer__legal">© 2026 · Company no. {COMPANY_NUMBER}</span>
+          <span className="lp-footer__legal"><CompanyLegal /></span>
         </div>
       </footer>
 

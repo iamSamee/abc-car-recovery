@@ -3,6 +3,7 @@ import { Barlow_Condensed, Figtree, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { GoogleTagManager, GoogleTagManagerNoScript } from "@/components/GoogleTagManager";
 import ClickTracking from "@/components/ClickTracking";
+import CookieBanner from "@/components/CookieBanner";
 import { Analytics } from "@vercel/analytics/next";
 import { ADDRESS, COMPANY_NAME, EMAIL } from "@/lib/content";
 
@@ -77,6 +78,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <GoogleTagManagerNoScript />
         <ClickTracking />
         {children}
+        <CookieBanner />
         <Analytics />
       </body>
     </html>
