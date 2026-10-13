@@ -1,4 +1,4 @@
-import Logo from "@/components/Logo";
+import Header from "@/components/Header";
 import FooterLinks from "@/components/FooterLinks";
 import CompanyLegal from "@/components/CompanyLegal";
 import { ADDRESS_ONE_LINE, COMPANY_NAME, EMAIL, PHONE_DISPLAY, PHONE_TEL } from "@/lib/content";
@@ -16,15 +16,7 @@ export default function SitePage({ eyebrow, title, lead, children }: Props) {
   const whatsapp = whatsappLink("Hi ABC, I need a recovery. My location is:");
   return (
     <>
-      <header className="header">
-        <div className="container header__bar">
-          <Logo href="/" />
-          <a href={PHONE_TEL} className="lp-header-call">
-            <span className="lp-header-call__label">Call 24/7</span>
-            <span className="lp-header-call__number">{PHONE_DISPLAY}</span>
-          </a>
-        </div>
-      </header>
+      <Header />
 
       <main>
         <section className="page-hero">

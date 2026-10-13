@@ -34,13 +34,14 @@ export const RATING = "4.9";
 export const REVIEW_COUNT = 59;
 
 export const navLinks = [
-  { label: "Services", href: "#services" },
-  { label: "How it works", href: "#how" },
-  { label: "Why choose us", href: "#why" },
-  { label: "Free quote", href: "#quote" },
-  { label: "Areas covered", href: "#areas" },
-  { label: "Reviews", href: "#reviews" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "Car towing", href: "/car-towing-birmingham/" },
+  { label: "Breakdown recovery", href: "/car-breakdown-recovery-birmingham/" },
+  { label: "Services", href: "/services/" },
+  { label: "Areas we cover", href: "/areas-we-cover/" },
+  { label: "Reviews", href: "/reviews/" },
+  { label: "About us", href: "/about/" },
+  { label: "Contact & quote", href: "/contact/" },
 ];
 
 export const trust = [
