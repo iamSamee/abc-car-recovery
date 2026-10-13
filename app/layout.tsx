@@ -4,6 +4,32 @@ import "./globals.css";
 import { GoogleTagManager, GoogleTagManagerNoScript } from "@/components/GoogleTagManager";
 import ClickTracking from "@/components/ClickTracking";
 import { Analytics } from "@vercel/analytics/next";
+import { ADDRESS, COMPANY_NAME, EMAIL } from "@/lib/content";
+
+// Business details Google can read directly (helps confirm the business is real and local).
+const businessSchema = {
+  "@context": "https://schema.org",
+  "@type": "AutomotiveBusiness",
+  name: COMPANY_NAME,
+  alternateName: "ABC Car Recovery Birmingham",
+  url: "https://www.abccarrecoverybirmingham.com/",
+  telephone: "+447356202939",
+  email: EMAIL,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: `${ADDRESS.line1}, ${ADDRESS.line2}`,
+    addressLocality: ADDRESS.city,
+    postalCode: ADDRESS.postcode,
+    addressCountry: "GB",
+  },
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+    opens: "00:00",
+    closes: "23:59",
+  },
+  areaServed: ["Birmingham", "West Midlands"],
+};
 
 // Only 800 is used. Each extra weight is another font file competing with the
 // hero headline (the page's Largest Contentful Paint) on first load.
@@ -42,6 +68,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en-GB" className={`${display.variable} ${body.variable} ${mono.variable}`}>
       <head>
         <GoogleTagManager />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }}
+        />
       </head>
       <body>
         <GoogleTagManagerNoScript />

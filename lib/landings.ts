@@ -119,7 +119,7 @@ export const carTowing: Landing = {
     title: "Local & long distance towing.",
     items: [
       { num: "01", title: "Emergency Towing", body: "Car won't go? A tow truck is dispatched straight to you, any time of day or night." },
-      { num: "02", title: "Local Car Towing", body: "Quick tows across Birmingham and the West Midlands — home, garage or dealer." },
+      { num: "02", title: "Local Car Towing", body: "Local car and auto towing across Birmingham and the West Midlands — to your home, garage or dealer." },
       { num: "03", title: "Long Distance Towing", body: "Car towing to any destination in the UK, with the price agreed up front." },
       { num: "04", title: "Tow To A Garage", body: "MOT, repairs or servicing — we tow your car to your garage and drop the keys." },
       ...extraServices.map(({ title, body }, i) => ({ num: String(5 + i).padStart(2, "0"), title, body })),
@@ -140,7 +140,7 @@ export const carTowing: Landing = {
   why: {
     eyebrow: "Towing company Birmingham",
     title: "Birmingham's local 24 hour towing.",
-    body: "ABC Car Towing Birmingham isn't a national call centre. You speak directly to the local drivers who'll tow your car — with the price agreed before we set off.",
+    body: "ABC Car Towing Birmingham isn't a national call centre. Our towing service is run by local drivers — you speak directly to the people who'll tow your car, with the price agreed before we set off.",
     image: "/why-driver.webp",
     imageAlt: "Car secured on an ABC flatbed tow truck",
     reasons: [
@@ -160,6 +160,7 @@ export const carTowing: Landing = {
   faq: {
     title: "Towing questions",
     items: [
+      { q: "Is there a tow truck near me?", a: "If you're in Birmingham or the West Midlands, yes. Our tow trucks are based in Birmingham (B6), so we can usually reach you within 30–45 minutes." },
       { q: "How quickly can a tow truck get to me?", a: "For emergency towing in Birmingham we typically arrive in 30–45 minutes. Booked tows arrive at the agreed time." },
       { q: "How much does car towing cost?", a: "It depends on distance and vehicle. You get an upfront towing quote before we dispatch — no hidden fees." },
       { q: "Do you do long-distance towing?", a: "Yes. We tow locally across Birmingham and long distance to anywhere in the UK." },
@@ -187,7 +188,7 @@ export const carBreakdownRecovery: Landing = {
     pill: "Recovery trucks available now",
     title: "Car Recovery Birmingham",
     highlight: "24/7 Breakdown Recovery",
-    lead: "Broken down? Call ABC for emergency car and van recovery anywhere in Birmingham. Upfront quote on the phone, then a local recovery truck heads straight to you.",
+    lead: "Broken down? Call ABC for emergency car recovery, van recovery and vehicle recovery anywhere in Birmingham. Upfront quote on the phone, then a local recovery truck heads straight to you.",
     callLabel: "Call now for recovery",
     quoteLabel: "Get a quote",
     ticks: ["Upfront recovery quotes", "Cars & vans", "Accident recovery", "Any destination"],
@@ -260,6 +261,7 @@ export const carBreakdownRecovery: Landing = {
   faq: {
     title: "Recovery questions",
     items: [
+      { q: "Is there car recovery near me?", a: "If you're in Birmingham or the West Midlands, yes. Our recovery trucks are based in Birmingham (B6), so we can usually reach you within 30–45 minutes — day or night." },
       { q: "How quickly can a recovery truck get to me?", a: "Within Birmingham we typically arrive in 30–45 minutes, depending on traffic and location. We'll give you a realistic ETA when you call." },
       { q: "How much does car recovery cost?", a: "It depends on distance and vehicle. We give you an upfront quote before dispatching — no hidden fees on arrival." },
       { q: "Do you do van recovery?", a: "Yes. We recover cars and vans, including non-runners and accident-damaged vehicles." },

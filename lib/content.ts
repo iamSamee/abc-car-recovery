@@ -4,6 +4,26 @@ export const PHONE_DISPLAY = "07356 202939";
 export const PHONE_TEL = "tel:+447356202939";
 export const WHATSAPP_URL = whatsappLink();
 export const EMAIL = "info@abccarrecoverybirmingham.co.uk";
+export const COMPANY_NAME = "ABC Car Breakdown Recovery Birmingham Ltd";
+export const COMPANY_NUMBER = "16578043";
+export const ADDRESS = {
+  line1: "Unit 3, Northwood Works",
+  line2: "155 Tame Rd",
+  city: "Birmingham",
+  postcode: "B6 7DG",
+};
+export const ADDRESS_ONE_LINE = `${ADDRESS.line1}, ${ADDRESS.line2}, ${ADDRESS.city} ${ADDRESS.postcode}`;
+
+// Real pages (not #anchors) so each can be its own Google Ads sitelink.
+export const footerLinks = [
+  { label: "Car towing", href: "/car-towing-birmingham/" },
+  { label: "Breakdown recovery", href: "/car-breakdown-recovery-birmingham/" },
+  { label: "Services", href: "/services/" },
+  { label: "Areas we cover", href: "/areas-we-cover/" },
+  { label: "Reviews", href: "/reviews/" },
+  { label: "Contact", href: "/contact/" },
+  { label: "Privacy policy", href: "/privacy-policy/" },
+];
 
 // Google Business Profile rating — update when it changes.
 export const RATING = "4.9";

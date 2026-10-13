@@ -4,6 +4,7 @@ import Photo from "@/components/Photo";
 import QuoteForm from "@/components/QuoteForm";
 import ReviewCarousel from "@/components/ReviewCarousel";
 import Faq from "@/components/Faq";
+import FooterLinks from "@/components/FooterLinks";
 import {
   PHONE_DISPLAY, PHONE_TEL, WHATSAPP_URL, EMAIL, RATING, REVIEW_COUNT,
   trust, services, steps, reasons, areas,
@@ -267,14 +268,14 @@ export default function Home() {
           <div className="footer__col">
             <span className="eyebrow">Services</span>
             {services.map((s) => (
-              <a key={s.num} href="#services">{s.title}</a>
+              <a key={s.num} href="/services/">{s.title}</a>
             ))}
           </div>
         </div>
         <div className="footer__bottom">
           <div className="container footer__legal">
             <span>© 2026 ABC Car Breakdown Recovery Birmingham Ltd · Company no. 16578043</span>
-            <span>Privacy · Terms</span>
+            <FooterLinks />
           </div>
         </div>
       </footer>
