@@ -20,6 +20,7 @@ export const footerLinks = [
   { label: "Breakdown recovery", href: "/car-breakdown-recovery-birmingham/" },
   { label: "Services", href: "/services/" },
   { label: "Areas we cover", href: "/areas-we-cover/" },
+  { label: "About us", href: "/about/" },
   { label: "Reviews", href: "/reviews/" },
   { label: "Contact", href: "/contact/" },
   { label: "Privacy policy", href: "/privacy-policy/" },
