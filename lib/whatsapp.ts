@@ -26,7 +26,10 @@ export function quoteMessage(f: {
   details: [label: string, value: string][];
   pickup: string;
   pickupPin?: string;
-  destination: string;
+  /** "Pickup" for recovery/towing; e.g. "Car location" for the mobile mechanic. */
+  pickupLabel?: string;
+  /** Omit for services that come to the customer (no destination). */
+  destination?: string;
   phone: string;
 }) {
   const pickup = f.pickupPin
@@ -37,8 +40,8 @@ export function quoteMessage(f: {
     f.heading,
     "",
     ...f.details.map(([label, value]) => `${label}: ${value}`),
-    `Pickup: ${pickup}`,
-    `Destination: ${f.destination.trim() || "Not decided yet"}`,
+    `${f.pickupLabel ?? "Pickup"}: ${pickup}`,
+    ...(f.destination === undefined ? [] : [`Destination: ${f.destination.trim() || "Not decided yet"}`]),
     `Mobile: ${f.phone.trim()}`,
   ].join("\n");
 }

@@ -15,6 +15,8 @@ export type Landing = {
     image: string;
     imageAlt: string;
     badge: string;
+    /** Optional line under the buttons, e.g. "Birmingham & surrounding areas". */
+    locationNote?: string;
   };
   trust: { title: string; sub: string }[];
   quote: {
@@ -27,13 +29,16 @@ export type Landing = {
     fromLabel: string;
     fromError: string;
     toPlaceholder: string;
+    /** Mobile mechanic: no destination field; asks for the car registration instead. */
+    comesToYou?: boolean;
     submitLabel: string;
     successNoun: string;
   };
   services: {
     eyebrow: string;
     title: string;
-    items: { num: string; title: string; body: string }[];
+    /** With `icon`, cards show an icon and a "Check availability" call link. */
+    items: { num: string; title: string; body: string; icon?: "wrench" | "engine" | "battery" }[];
     cta: string;
   };
   how: {
@@ -275,4 +280,104 @@ export const carBreakdownRecovery: Landing = {
     whatsappLabel: "Or WhatsApp your location",
   },
   stickyCallLabel: "Call for recovery",
+};
+
+export const mobileMechanic: Landing = {
+  meta: {
+    title: "Mobile Mechanic Birmingham | Auto Electrician & Battery Replacement | ABC",
+    description: "Car won't start? ABC's mobile mechanic comes to you in Birmingham for repairs, electrical diagnosis and battery replacement. Call or WhatsApp to check availability.",
+    path: "/mobile-mechanic-birmingham/",
+  },
+  brandName: "Mobile Mechanic",
+  whatsappText: "Hi ABC, I need a mobile mechanic. My car's problem is:  My location is:",
+  hero: {
+    pill: "We come to your location",
+    title: "Mobile Mechanic",
+    highlight: "Birmingham",
+    lead: "Car won't start? We bring repairs, electrical diagnosis and battery replacement to you — at home, at work or at the roadside.",
+    callLabel: "Call to check availability",
+    quoteLabel: "Get a quote",
+    ticks: ["We come to you", "Electrical diagnosis", "Battery replacement", "Upfront quotes"],
+    image: "/mobile-mechanic-hero.webp",
+    imageAlt: "ABC mobile mechanic diagnosing a car engine with a diagnostic tablet",
+    badge: "local mobile mechanic", // shown as "<RATING> rated local mobile mechanic"
+    locationNote: "Birmingham & surrounding areas",
+  },
+  trust: [
+    { title: "We come to you", sub: "Home, work or roadside" },
+    { title: "Upfront quotes", sub: "Price agreed before we start" },
+    { title: "Local mechanic", sub: "Based in Birmingham" },
+    { title: "Tow back-up", sub: "Our own recovery trucks" },
+  ],
+  quote: {
+    eyebrow: "Mobile mechanic quote",
+    title: "Need a mobile mechanic near you?",
+    lead: "Tell us your postcode, car registration and what's wrong. We'll check how we can help and give you a price before we come out.",
+    urgent: "Car won't start right now? Calling is fastest.",
+    issueLabel: "What's wrong?",
+    issues: ["Won't start", "Battery", "Electrical fault", "Warning light", "Other repair"],
+    fromLabel: "Where is the car?",
+    fromError: "Please add where the car is.",
+    toPlaceholder: "",
+    comesToYou: true,
+    submitLabel: "Check availability",
+    successNoun: "mobile mechanic quote",
+  },
+  services: {
+    eyebrow: "Mobile mechanic services",
+    title: "Help for your car. Wherever you are.",
+    items: [
+      { num: "01", icon: "wrench", title: "Mobile Mechanic", body: "On-site diagnosis and car repairs at your home, workplace or the roadside." },
+      { num: "02", icon: "engine", title: "Auto Electrician", body: "Starting problems, warning lights and car electrical fault finding." },
+      { num: "03", icon: "battery", title: "Car Battery Replacement", body: "Mobile battery replacement. Call to check suitability and price for your car." },
+    ],
+    cta: "Call to check availability",
+  },
+  how: {
+    eyebrow: "How it works",
+    title: "Get help in 3 simple steps.",
+    steps: [
+      { n: "1", title: "Share your location", body: "Call or WhatsApp us, or press “Use my location” in the form below." },
+      { n: "2", title: "Tell us your car's symptoms", body: "What's happening, any warning lights, and your make, model or registration." },
+      { n: "3", title: "Confirm availability & quote", body: "We confirm when we can be with you and the price before we start." },
+    ],
+    noteStrong: "Can't be fixed on the spot?",
+    noteBody: "We also run our own recovery trucks, so we can tow your car to a garage or home without you having to call anyone else.",
+  },
+  why: {
+    eyebrow: "Local mobile mechanic",
+    title: "Repairs without the garage trip.",
+    body: "No waiting rooms and no lifts to the garage. Tell us what's wrong and a local ABC mechanic comes to you in Birmingham — with the price agreed before any work starts.",
+    image: "/why-driver.webp",
+    imageAlt: "ABC recovery truck carrying a car — tow back-up if a repair can't be done on site",
+    reasons: [
+      { title: "We come to your location", body: "Home, work, car park or roadside across Birmingham." },
+      { title: "Electrical fault finding", body: "Diagnosis for starting problems and warning lights." },
+      { title: "Upfront prices", body: "We quote before we start. No surprises." },
+      { title: "Recovery back-up", body: "If it can't be fixed on site, our trucks can tow it." },
+      { title: "Local Birmingham team", body: "Speak directly to the people who'll help you." },
+    ],
+  },
+  reviewsTitle: "What customers say",
+  areas: {
+    eyebrow: "Mobile mechanic near me",
+    lead: "We come to you across Birmingham and the surrounding areas. Not sure if we cover your postcode? Call or WhatsApp us to check.",
+    items: [...baseAreas, "Surrounding areas"],
+  },
+  faq: {
+    title: "Mobile mechanic questions",
+    items: [
+      { q: "Do you come to my home or workplace?", a: "Yes. Our mobile mechanic comes to you at home, at work, in a car park or at the roadside across Birmingham and surrounding areas." },
+      { q: "Can you fix a car that won't start?", a: "Often, yes. Starting problems are commonly caused by the battery, starter motor or an electrical fault. Tell us the symptoms and we'll let you know how we can help." },
+      { q: "Can you replace my car battery on site?", a: "Yes. Tell us your car's make, model or registration and we'll check we can supply the right battery and give you a price before we come out." },
+      { q: "How much does a mobile mechanic cost?", a: "It depends on the job. We give you a price before any work starts, so there are no surprises." },
+      { q: "What if my car can't be fixed at the roadside?", a: "We also run our own recovery trucks, so we can tow your car to a garage or your home." },
+    ],
+  },
+  final: {
+    title: "Need a mobile mechanic? Call now.",
+    lead: "Mobile repairs, auto electrics and battery replacement in Birmingham. Tell us what's wrong and we'll check availability.",
+    whatsappLabel: "Or WhatsApp your location & problem",
+  },
+  stickyCallLabel: "Call now",
 };

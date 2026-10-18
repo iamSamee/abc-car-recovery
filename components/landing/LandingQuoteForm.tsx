@@ -12,13 +12,13 @@ const vehicles = ["Car", "Van", "4x4"];
 type Props = { config: Landing["quote"] };
 
 export default function LandingQuoteForm({ config }: Props) {
-  const empty = { vehicle: vehicles[0], issue: config.issues[0], from: "", to: "", phone: "" };
+  const empty = { vehicle: vehicles[0], issue: config.issues[0], from: "", to: "", reg: "", phone: "" };
   const [form, setForm] = useState(empty);
   const [error, setError] = useState("");
   const [sentUrl, setSentUrl] = useState<string>();
   const location = useCurrentLocation(setError);
 
-  const set = (key: "from" | "to" | "phone") => (value: string) => {
+  const set = (key: "from" | "to" | "phone" | "reg") => (value: string) => {
     setForm((f) => ({ ...f, [key]: value }));
     setError("");
   };
@@ -34,10 +34,12 @@ export default function LandingQuoteForm({ config }: Props) {
         details: [
           ["Vehicle", form.vehicle],
           [config.issueLabel.replace(/\?$/, ""), form.issue],
+          ...(config.comesToYou ? [["Registration", form.reg.trim().toUpperCase() || "Not given"] as [string, string]] : []),
         ],
         pickup: form.from,
         pickupPin: location.pin,
-        destination: form.to,
+        pickupLabel: config.comesToYou ? "Car location" : undefined,
+        destination: config.comesToYou ? undefined : form.to,
         phone: form.phone,
       })
     );
@@ -92,10 +94,17 @@ export default function LandingQuoteForm({ config }: Props) {
         onChange={set("from")}
         location={location}
       />
-      <label className="field">
-        <span className="field__label">Destination</span>
-        <input value={form.to} onChange={(e) => set("to")(e.target.value)} placeholder={config.toPlaceholder} />
-      </label>
+      {config.comesToYou ? (
+        <label className="field">
+          <span className="field__label">Car registration (optional)</span>
+          <input value={form.reg} onChange={(e) => set("reg")(e.target.value)} placeholder="e.g. AB12 CDE" autoCapitalize="characters" />
+        </label>
+      ) : (
+        <label className="field">
+          <span className="field__label">Destination</span>
+          <input value={form.to} onChange={(e) => set("to")(e.target.value)} placeholder={config.toPlaceholder} />
+        </label>
+      )}
       <label className="field">
         <span className="field__label">Mobile number</span>
         <input type="tel" value={form.phone} onChange={(e) => set("phone")(e.target.value)} placeholder="07…" autoComplete="tel" />

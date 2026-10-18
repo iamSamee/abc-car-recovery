@@ -426,3 +426,12 @@ section[id], footer[id] { scroll-margin-top: 80px; }
 .prose-table th { background: var(--paper); font-weight: 700; }
 .prose-table tr:last-child td { border-bottom: 0; }
 .mobile-nav a[aria-current="page"] { color: var(--yellow); }
+
+/* ---------- icon service cards (mobile mechanic) ---------- */
+.service--icon:hover { border-color: var(--ink); }
+.service__icon {
+  width: 52px; height: 52px; border-radius: 12px; background: #fff4d1; color: var(--yellow-dark);
+  display: flex; align-items: center; justify-content: center;
+}
+.hero__location { display: flex; align-items: center; gap: 6px; font-size: 14px; color: #d0d0d0; }
+.hero__location svg { color: var(--yellow); }

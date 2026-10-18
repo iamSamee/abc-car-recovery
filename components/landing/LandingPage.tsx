@@ -3,6 +3,7 @@ import Photo from "@/components/Photo";
 import ReviewCarousel from "@/components/ReviewCarousel";
 import Faq from "@/components/Faq";
 import LandingQuoteForm from "./LandingQuoteForm";
+import ServiceIcon from "@/components/ServiceIcon";
 import { whatsappLink } from "@/lib/whatsapp";
 import { PHONE_DISPLAY, PHONE_TEL, EMAIL, RATING, REVIEW_COUNT } from "@/lib/content";
 import { googleReviews, type Landing } from "@/lib/landings";
@@ -59,6 +60,12 @@ export default function LandingPage({ c }: { c: Landing }) {
                   <a href="#quote" className="btn btn--outline">{c.hero.quoteLabel}</a>
                 </div>
               </div>
+              {c.hero.locationNote && (
+                <span className="hero__location">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden><path d="M12 2a7 7 0 0 0-7 7c0 5.3 7 13 7 13s7-7.7 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z" /></svg>
+                  {c.hero.locationNote}
+                </span>
+              )}
               <div className="ticks">
                 {c.hero.ticks.map((t) => (
                   <span key={t} className="tick">
@@ -115,13 +122,22 @@ export default function LandingPage({ c }: { c: Landing }) {
             <h2 className="h2">{c.services.title}</h2>
           </div>
           <div className="card-grid lp-card-grid">
-            {c.services.items.map((s) => (
-              <div key={s.num} className="service">
-                <span className="service__num">{s.num}</span>
-                <h3 className="display service__title">{s.title}</h3>
-                <p className="service__body">{s.body}</p>
-              </div>
-            ))}
+            {c.services.items.map((s) =>
+              s.icon ? (
+                <a key={s.num} href={PHONE_TEL} className="service service--icon">
+                  <span className="service__icon"><ServiceIcon name={s.icon} /></span>
+                  <h3 className="display service__title">{s.title}</h3>
+                  <p className="service__body">{s.body}</p>
+                  <span className="service__cta">Check availability <span>→</span></span>
+                </a>
+              ) : (
+                <div key={s.num} className="service">
+                  <span className="service__num">{s.num}</span>
+                  <h3 className="display service__title">{s.title}</h3>
+                  <p className="service__body">{s.body}</p>
+                </div>
+              )
+            )}
           </div>
           <a href={PHONE_TEL} className="btn btn--yellow how__cta" style={{ marginTop: 16 }}>{c.services.cta}</a>
         </section>

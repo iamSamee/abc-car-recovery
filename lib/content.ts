@@ -21,6 +21,7 @@ export const REGISTERED_OFFICE = "412 Walsall Road, Perry Barr, Birmingham B42 2
 export const footerLinks = [
   { label: "Car towing", href: "/car-towing-birmingham/" },
   { label: "Breakdown recovery", href: "/car-breakdown-recovery-birmingham/" },
+  { label: "Mobile mechanic", href: "/mobile-mechanic-birmingham/" },
   { label: "Services", href: "/services/" },
   { label: "Areas we cover", href: "/areas-we-cover/" },
   { label: "About us", href: "/about/" },
@@ -37,6 +38,7 @@ export const navLinks = [
   { label: "Home", href: "/" },
   { label: "Car towing", href: "/car-towing-birmingham/" },
   { label: "Breakdown recovery", href: "/car-breakdown-recovery-birmingham/" },
+  { label: "Mobile mechanic", href: "/mobile-mechanic-birmingham/" },
   { label: "Services", href: "/services/" },
   { label: "Areas we cover", href: "/areas-we-cover/" },
   { label: "Reviews", href: "/reviews/" },
