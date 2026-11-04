@@ -1,10 +1,10 @@
 import Script from "next/script";
-import { GTM_ID } from "@/lib/analytics";
+import { GA4_ID, GTM_ID } from "@/lib/analytics";
 
 /**
- * GTM loader — goes in <head> via the root layout.
+ * GTM + GA4 loader — goes in <head> via the root layout.
  *
- * GTM plus the Google Ads tag it pulls in is ~300 KB of JavaScript, which on
+ * GTM plus the Google tags it pulls in is 300+ KB of JavaScript, which on
  * slow phones delays the hero image (LCP) and blocks the main thread. So it
  * loads on the visitor's first interaction, or 3.5s after page load, whichever
  * is first. Events pushed to dataLayer before then (e.g. a fast call tap) are
@@ -26,7 +26,10 @@ var done=false,evs=['pointerdown','touchstart','scroll','keydown'];
 function load(){if(done)return;done=true;
 evs.forEach(function(e){w.removeEventListener(e,load,{passive:true,capture:true})});
 var j=d.createElement('script');j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i;
-d.head.appendChild(j);}
+d.head.appendChild(j);
+w.gtag('js',new Date());w.gtag('config','${GA4_ID}');
+var k=d.createElement('script');k.async=true;k.src='https://www.googletagmanager.com/gtag/js?id=${GA4_ID}';
+d.head.appendChild(k);}
 evs.forEach(function(e){w.addEventListener(e,load,{passive:true,capture:true})});
 function later(){setTimeout(load,${LOAD_DELAY_MS})}
 if(d.readyState==='complete')later();else w.addEventListener('load',later);

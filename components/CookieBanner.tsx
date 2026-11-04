@@ -27,7 +27,7 @@ export default function CookieBanner() {
   return (
     <div className="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie preferences">
       <p className="cookie-banner__text">
-        We use cookies to see which of our adverts bring in calls. <a href="/privacy-policy/#cookies">Learn more</a>
+        We use cookies to measure site visits and see which adverts bring in calls. <a href="/privacy-policy/#cookies">Learn more</a>
       </p>
       <div className="cookie-banner__actions">
         <button type="button" className="cookie-banner__btn" onClick={() => choose("denied")}>Reject</button>

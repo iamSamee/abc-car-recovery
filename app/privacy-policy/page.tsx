@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import SitePage from "@/components/SitePage";
 import CookieSettingsButton from "@/components/CookieSettingsButton";
 import { ADDRESS_ONE_LINE, COMPANY_NAME, COMPANY_NUMBER, EMAIL, PHONE_DISPLAY, REGISTERED_OFFICE } from "@/lib/content";
-import { GTM_ID } from "@/lib/analytics";
+import { GA4_ID, GTM_ID } from "@/lib/analytics";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | ABC Car Recovery Birmingham",
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/privacy-policy/" },
 };
 
-const UPDATED = "13 October 2026";
+const UPDATED = "4 November 2026";
 
 export default function PrivacyPage() {
   return (
@@ -45,6 +45,13 @@ export default function PrivacyPage() {
           We use Vercel Web Analytics to count page visits. It does not use cookies and reports only aggregated statistics.
         </p>
         <p>
+          We also use Google Analytics 4 (property {GA4_ID}), provided by Google Ireland Limited, to understand how visitors
+          use the site: which pages are viewed, how people arrive, and when a call or WhatsApp button is tapped. It processes
+          information such as your device and browser type, approximate location and online identifiers. Analytics cookies are
+          only set if you choose &ldquo;Accept&rdquo; in our cookie banner. If you don&apos;t, Google Analytics receives only limited,
+          cookieless signals. Our lawful basis for analytics cookies is your consent.
+        </p>
+        <p>
           We use Google Tag Manager (container {GTM_ID}), provided by Google Ireland Limited, to run Google Ads conversion
           tracking. This tells us whether our adverts lead to enquiries. When you use this site, it records:
         </p>
@@ -74,7 +81,7 @@ export default function PrivacyPage() {
 
         <h2 id="cookies">Cookies and similar technologies</h2>
         <p>
-          Cookies are small files stored on your device. We only use advertising cookies if you accept them.
+          Cookies are small files stored on your device. We only use analytics and advertising cookies if you accept them.
           You can change your choice at any time: <CookieSettingsButton />.
         </p>
         <div className="prose-table">
@@ -84,6 +91,8 @@ export default function PrivacyPage() {
             </thead>
             <tbody>
               <tr><td><code>abc_cookie_consent</code> (local storage)</td><td>This website</td><td>Remembers your cookie choice so we don&apos;t ask again</td><td>Until you clear it</td><td>No (strictly necessary)</td></tr>
+              <tr><td><code>_ga</code></td><td>Google Analytics</td><td>Distinguishes visitors so we can measure site use</td><td>2 years</td><td>Yes</td></tr>
+              <tr><td><code>_ga_LWWZ5YBEN1</code></td><td>Google Analytics</td><td>Keeps track of your visit (session)</td><td>2 years</td><td>Yes</td></tr>
               <tr><td><code>_gcl_au</code></td><td>Google Ads</td><td>Links visits to our adverts so we can measure conversions</td><td>90 days</td><td>Yes</td></tr>
               <tr><td><code>_gcl_aw</code></td><td>Google Ads</td><td>Stores the ad click ID when you arrive from one of our adverts</td><td>90 days</td><td>Yes</td></tr>
               <tr><td>Google domain cookies (e.g. on google.com, doubleclick.net)</td><td>Google</td><td>Ad measurement, as described in Google&apos;s policies</td><td>Set by Google</td><td>Yes</td></tr>
