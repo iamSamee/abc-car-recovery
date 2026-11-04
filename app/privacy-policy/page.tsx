@@ -48,7 +48,7 @@ export default function PrivacyPage() {
           We also use Google Analytics 4 (property {GA4_ID}), provided by Google Ireland Limited, to understand how visitors
           use the site: which pages are viewed, how people arrive, and when a call or WhatsApp button is tapped. It processes
           information such as your device and browser type, approximate location and online identifiers. Analytics cookies are
-          only set if you choose &ldquo;Accept&rdquo; in our cookie banner. If you don&apos;t, Google Analytics receives only limited,
+          only set if you accept them or turn on &ldquo;Statistics&rdquo; in our cookie preferences. If you don&apos;t, Google Analytics receives only limited,
           cookieless signals. Our lawful basis for analytics cookies is your consent.
         </p>
         <p>
@@ -67,8 +67,8 @@ export default function PrivacyPage() {
           it opens.
         </p>
         <p>
-          Google Ads cookies are only set if you choose &ldquo;Accept&rdquo; in our cookie banner. If you choose
-          &ldquo;Reject&rdquo; (or haven&apos;t chosen yet), we use Google Consent Mode: Google&apos;s tags don&apos;t set or read
+          Google Ads cookies are only set if you accept them or turn on &ldquo;Marketing&rdquo; in our cookie preferences. If you
+          reject them (or haven&apos;t chosen yet), we use Google Consent Mode: Google&apos;s tags don&apos;t set or read
           advertising cookies and send only limited, cookieless signals that Google uses to estimate how many enquiries our
           adverts produce. Our lawful basis for advertising cookies is your consent, which you can withdraw at any time.
           Google&apos;s use of this information is described in{" "}
@@ -82,7 +82,8 @@ export default function PrivacyPage() {
         <h2 id="cookies">Cookies and similar technologies</h2>
         <p>
           Cookies are small files stored on your device. We only use analytics and advertising cookies if you accept them.
-          You can change your choice at any time: <CookieSettingsButton />.
+          You can change your choice at any time using the cookie icon at the bottom of each page, or here: <CookieSettingsButton />.
+          If you withdraw consent, we remove these cookies from your browser.
         </p>
         <div className="prose-table">
           <table>

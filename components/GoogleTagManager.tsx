@@ -17,10 +17,11 @@ export function GoogleTagManager() {
     <Script id="gtm" strategy="afterInteractive">
       {`(function(w,d,l,i){
 w[l]=w[l]||[];w.gtag=w.gtag||function(){w[l].push(arguments)};
-var c=null;try{c=localStorage.getItem('abc_cookie_consent')}catch(e){}
-var g=c==='granted'?'granted':'denied';
-w.gtag('consent','default',{ad_storage:g,ad_user_data:g,ad_personalization:g,analytics_storage:g,wait_for_update:500});
-w.gtag('set','ads_data_redaction',g==='denied');w.gtag('set','url_passthrough',true);
+var a=false,m=false;try{var c=localStorage.getItem('abc_cookie_consent');
+if(c==='granted'){a=m=true}else if(c&&c!=='denied'){var p=JSON.parse(c);a=!!p.analytics;m=!!p.marketing}}catch(e){}
+var ag=a?'granted':'denied',mg=m?'granted':'denied';
+w.gtag('consent','default',{ad_storage:mg,ad_user_data:mg,ad_personalization:mg,analytics_storage:ag,wait_for_update:500});
+w.gtag('set','ads_data_redaction',!m);w.gtag('set','url_passthrough',true);
 w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
 var done=false,evs=['pointerdown','touchstart','scroll','keydown'];
 function load(){if(done)return;done=true;
