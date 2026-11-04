@@ -79,6 +79,13 @@ export default function PrivacyPage() {
           Our website is hosted by Vercel, which keeps short-term technical logs (such as IP addresses) to run and secure the site.
         </p>
 
+        <h3>Calls from our adverts</h3>
+        <p>
+          If you reach this site from one of our Google adverts, we may show a Google forwarding number instead of our usual
+          number. Your call is routed through Google to us, and Google gives us reports on calls, such as when they took place,
+          how long they lasted and the caller&apos;s area code. We use this to see whether our adverts lead to real enquiries.
+        </p>
+
         <h2 id="cookies">Cookies and similar technologies</h2>
         <p>
           Cookies are small files stored on your device. We only use analytics and advertising cookies if you accept them.

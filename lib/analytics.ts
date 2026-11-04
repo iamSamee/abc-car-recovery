@@ -1,5 +1,7 @@
 export const GTM_ID = "GTM-57BM8M6S";
 export const GA4_ID = "G-LWWZ5YBEN1";
+// Google Ads "Call (07356 202939)" conversion: 30s+ calls via a Google forwarding number.
+export const ADS_CALL_CONVERSION = "AW-16923071907/04-3CNaXibIdEKOrxoU_";
 
 type DataLayerEvent = { event: string } & Record<string, unknown>;
 
