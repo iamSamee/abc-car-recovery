@@ -27,7 +27,7 @@ export default function AboutPage() {
           <h2>What we do</h2>
           <p>
             Breakdown and accident recovery, car and van towing, jumpstarts, refuelling, winching stuck vehicles and vehicle
-            transport — locally or anywhere in the UK. We also offer garage services, a mobile mechanic and MOT testing.
+            transport — locally or anywhere in the UK. We also offer garage services and MOT testing.
           </p>
           <h2>How we work</h2>
           <p>

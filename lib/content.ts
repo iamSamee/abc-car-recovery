@@ -21,7 +21,6 @@ export const REGISTERED_OFFICE = "412 Walsall Road, Perry Barr, Birmingham B42 2
 export const footerLinks = [
   { label: "Car towing", href: "/car-towing-birmingham/" },
   { label: "Breakdown recovery", href: "/car-breakdown-recovery-birmingham/" },
-  { label: "Mobile mechanic", href: "/mobile-mechanic-birmingham/" },
   { label: "Services", href: "/services/" },
   { label: "Areas we cover", href: "/areas-we-cover/" },
   { label: "About us", href: "/about/" },
@@ -38,7 +37,6 @@ export const navLinks = [
   { label: "Home", href: "/" },
   { label: "Car towing", href: "/car-towing-birmingham/" },
   { label: "Breakdown recovery", href: "/car-breakdown-recovery-birmingham/" },
-  { label: "Mobile mechanic", href: "/mobile-mechanic-birmingham/" },
   { label: "Services", href: "/services/" },
   { label: "Areas we cover", href: "/areas-we-cover/" },
   { label: "Reviews", href: "/reviews/" },
@@ -56,7 +54,6 @@ export const trust = [
 // Garage-side services, shown on every page after the recovery services.
 export const extraServices = [
   { tag: "Garage", title: "Garage Services", body: "Servicing, diagnostics and repairs. We can collect your car, fix it and bring it back to you." },
-  { tag: "Mobile", title: "Mobile Mechanic", body: "Repairs at your home, workplace or roadside, so many faults are fixed on the spot without a tow." },
   { tag: "Garage", title: "MOT Testing", body: "MOT tests for cars and vans, with collection and drop-off available so you don't lose your day." },
 ];
 

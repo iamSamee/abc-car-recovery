@@ -3,8 +3,8 @@ import SitePage from "@/components/SitePage";
 import { services } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Our Services | Recovery, Towing, Mobile Mechanic & MOT | ABC",
-  description: "Breakdown and accident recovery, car towing, jumpstarts, vehicle transport, garage services, mobile mechanic and MOT testing in Birmingham.",
+  title: "Our Services | Recovery, Towing, Garage Services & MOT | ABC",
+  description: "Breakdown and accident recovery, car towing, jumpstarts, vehicle transport, garage services and MOT testing in Birmingham.",
   alternates: { canonical: "/services/" },
 };
 
