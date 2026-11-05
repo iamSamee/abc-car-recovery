@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Barlow_Condensed, Figtree, JetBrains_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { GoogleTagManager, GoogleTagManagerNoScript } from "@/components/GoogleTagManager";
 import ClickTracking from "@/components/ClickTracking";
@@ -33,21 +33,22 @@ const businessSchema = {
   areaServed: ["Birmingham", "West Midlands"],
 };
 
-// Only 800 is used. Each extra weight is another font file competing with the
-// hero headline (the page's Largest Contentful Paint) on first load.
-const display = Barlow_Condensed({
-  subsets: ["latin"],
-  weight: ["800"],
+// Fonts are stored in the repo so the build never depends on reaching Google.
+// Only weight 800 of the display font is used: each extra file competes with
+// the hero headline (the page's Largest Contentful Paint) on first load.
+const display = localFont({
+  src: "./fonts/barlow-condensed-800.woff2",
+  weight: "800",
   variable: "--font-display",
 });
-const body = Figtree({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+const body = localFont({
+  src: "./fonts/figtree-variable.woff2",
+  weight: "400 700",
   variable: "--font-body",
 });
-const mono = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["500"],
+const mono = localFont({
+  src: "./fonts/jetbrains-mono-500.woff2",
+  weight: "500",
   variable: "--font-mono",
   // Small labels only — let it load after the important fonts.
   preload: false,
